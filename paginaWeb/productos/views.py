@@ -1,9 +1,12 @@
 # views.py
 from django.shortcuts import render
 from django.urls import reverse
+from .models import Item
 
 def index(request):
-    return render(request, 'productos/index.html')
+    productos_destacados = Item.objects.filter(destacado=True)[:9]
+    return render(request, 'productos/index.html', {'productos_destacados': productos_destacados})
+
 
 def desc_Cell1(request):
     return render(request, 'productos/desc_Cell1.html')
