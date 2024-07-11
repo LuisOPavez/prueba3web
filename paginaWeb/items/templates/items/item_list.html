@@ -4,9 +4,7 @@
 
 {% block content %}
   <h1>Lista de Items</h1>
-  {% if user.is_superuser or user.is_staff %}
-    <a href="{% url 'item_create' %}" class="btn btn-primary mb-2">Crear nuevo item</a>
-  {% endif %}
+  <a href="{% url 'item_create' %}" class="btn btn-primary mb-2">Crear nuevo item</a>
   <ul>
       {% for item in items %}
           <li>
@@ -17,5 +15,3 @@
       {% endfor %}
   </ul>
 {% endblock %}
-
-
