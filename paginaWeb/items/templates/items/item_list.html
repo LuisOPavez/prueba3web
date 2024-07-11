@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Lista de Items{% endblock %}
+
+{% block content %}
+  <h1>Lista de Items</h1>
+  {% if user.is_superuser or user.is_staff %}
+    <a href="{% url 'item_create' %}" class="btn btn-primary mb-2">Crear nuevo item</a>
+  {% endif %}
+  <ul>
+      {% for item in items %}
+          <li>
+              <a href="{% url 'item_detail' item.pk %}">{{ item.nombre }}</a>
+              <a href="{% url 'item_edit' item.pk %}" class="btn btn-secondary btn-sm edit-btn">Editar</a>
+              <a href="{% url 'item_delete' item.pk %}" class="btn btn-danger btn-sm delete-btn">Eliminar</a>
+          </li>
+      {% endfor %}
+  </ul>
+{% endblock %}
+
+

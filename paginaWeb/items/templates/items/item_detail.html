@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>{{ item.nombre }}</h1>
+  <p>{{ item.descripcion }}</p>
+  <p>Tipo de artículo: {{ item.tipo_articulo }}</p>
+  <p>Marca: {{ item.marca }}</p>
+  <p>Precio: {{ item.formatted_precio }}</p>
+  <p>Descuento: {{ item.descuento }}%</p>
+  <p>Precio con Descuento: {{ item.formatted_precio_desc }}</p>
+  <p>Smart: {{ item.smart }}</p>
+  <p>Color: {{ item.color }}</p>
+  <p>Material: {{ item.material }}</p>
+  <img src="{{ item.imagen.url }}" alt="{{ item.nombre }}">
+  <p>Destacado: {{ item.destacado }}</p>
+  <p>URL: {{ item.url }}</p>
+  <a href="{% url 'item_list' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

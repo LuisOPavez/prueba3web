@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Crear/Editar Item{% endblock %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Item</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Guardar cambios{% else %}Crear{% endif %}</button>
+  </form>
+{% endblock %}

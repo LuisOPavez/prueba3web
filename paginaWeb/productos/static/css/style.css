@@ -309,3 +309,9 @@
 .card-body > * {
   flex: 1;
 }
+
+.edit-btn, .delete-btn {
+  font-size: 12px; /* Tamaño de la fuente */
+  padding: 5px 10px; /* Relleno */
+  margin-left: 10px; /* Espacio entre botones */
+}

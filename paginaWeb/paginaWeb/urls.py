@@ -34,9 +34,10 @@ urlpatterns = [
     path('desc_Pc1/', views.desc_Pc1, name='desc_Pc1'),
     path('desc_Pc2/', views.desc_Pc2, name='desc_Pc2'),    
     path('desc_Pc3/', views.desc_Pc3, name='desc_Pc3'),
-    path("accounts/", include("django.contrib.auth.urls")),    # Añadir esta línea
+    path("accounts/", include("django.contrib.auth.urls")),
+    path('items/', include('items.urls')),  
+    path('', include('productos.urls')),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

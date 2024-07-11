@@ -1,5 +1,8 @@
+# items/models.py
+
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Item(models.Model):
     item = models.CharField(primary_key=True, max_length=8, editable=False)
@@ -26,7 +29,6 @@ class Item(models.Model):
                 item_int = int(last_item.item)
                 new_item_int = item_int + 1
                 self.item = f'{new_item_int:08d}'
-
         self.precio_desc = self.precio - (self.precio * (self.descuento / 100))
         super(Item, self).save(*args, **kwargs)
 
@@ -34,15 +36,14 @@ class Item(models.Model):
         return self.nombre
 
     @property
-    def absolute_url(self):
-        return reverse(self.url)
+    def get_absolute_url(self):
+        return reverse('item_detail', args=[str(self.item)])
 
     def formatted_precio(self):
         return "${:,.0f}".format(self.precio).replace(',', '.')
-    
+
     def formatted_precio_desc(self):
         return "${:,.0f}".format(self.precio_desc).replace(',', '.')
-
 
 
 
