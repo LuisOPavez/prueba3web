@@ -4,10 +4,10 @@
 
 {% block content %}
   <h1>Eliminar Item</h1>
-  <p>¿Estás seguro de que quieres eliminar "{{ item.nombre }}"?</p>
+  <p>¿Estás seguro de que deseas eliminar "{{ item.nombre }}"?</p>
   <form method="post">
     {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
     <a href="{% url 'item_list' %}" class="btn btn-secondary">Cancelar</a>
   </form>
 {% endblock %}
